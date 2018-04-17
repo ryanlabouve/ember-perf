@@ -58,6 +58,12 @@ export default Base.extend(Evented, {
     if (transitionInfo.promise._emberPerfTransitionId) {
       return;
     }
+
+    // Don't record for route transition errors
+    if (transitionInfo.promise.error.message) {
+      return;
+    }
+
     transitionInfo.promise._emberPerfTransitionId = transitionCounter++;
     let transitionRoute = transitionInfo.promise.targetName ||
       get(transitionInfo.promise, 'intent.name') ||

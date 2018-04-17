@@ -22,7 +22,7 @@
   "homepage": "https://github.com/mike-north/ember-perf",
   "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "^2.5.0",
+    "broccoli-asset-rev": "2.7.0",
     "ember-cli": "2.18.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-dependency-checker": "^2.0.0",
@@ -36,16 +36,16 @@
     "ember-cli-release": "1.0.0-beta.2",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-test-loader": "^2.1.0",
-    "ember-cli-uglify": "^2.0.0",
+    "ember-cli-uglify": "2.1.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^2.0.0",
-    "ember-load-initializers": "^1.0.0",
-    "ember-resolver": "^4.1.0",
+    "ember-load-initializers": "1.1.0",
+    "ember-resolver": "4.5.5",
     "ember-source": "^2.13.2",
-    "eslint-plugin-ember": "^5.0.0",
-    "eslint-plugin-node": "^5.2.1",
-    "loader.js": "^4.1.0",
-    "rsvp": "^4.7.0"
+    "eslint-plugin-ember": "5.1.0",
+    "eslint-plugin-node": "6.0.1",
+    "loader.js": "4.7.0",
+    "rsvp": "4.8.2"
   },
   "keywords": [
     "ember-addon",
@@ -59,7 +59,7 @@
     "measure"
   ],
   "dependencies": {
-    "ember-cli-babel": "^6.1.0"
+    "ember-cli-babel": "^6.12.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

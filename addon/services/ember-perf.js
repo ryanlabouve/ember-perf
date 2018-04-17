@@ -60,7 +60,7 @@ export default Base.extend(Evented, {
     }
 
     // Don't record for route transition errors
-    if (transitionInfo.promise.error.message) {
+    if (transitionInfo.promise.error) {
       return;
     }
 

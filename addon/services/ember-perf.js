@@ -12,13 +12,9 @@ import Ember from 'ember';
 import TransitionData from '../core/transition-data';
 import RenderData from '../core/render-data';
 
-const {
-  Logger
-} = Ember;
+const { Logger } = Ember;
 const Base = Service || EObj;
-const {
-  keys
-} = Object;
+const { keys } = Object;
 
 // jscs:enable disallowDirectPropertyAccess
 
@@ -42,7 +38,7 @@ export default Base.extend(Evented, {
 
   _setDefaults() {
     let defaults = getWithDefault(this, 'defaults', {});
-    keys(defaults).map((key) => {
+    keys(defaults).map(key => {
       let classifiedKey = classify(key);
       let defaultKey = `default${classifiedKey}`;
       return set(this, defaultKey, defaults[key]);
@@ -65,9 +61,10 @@ export default Base.extend(Evented, {
     }
 
     transitionInfo.promise._emberPerfTransitionId = transitionCounter++;
-    let transitionRoute = transitionInfo.promise.targetName ||
+    let transitionRoute =
+      transitionInfo.promise.targetName ||
       get(transitionInfo.promise, 'intent.name') ||
-      [...get(transitionInfo.promise, 'state.handlerInfos')].slice(-1)[0].name
+      [...get(transitionInfo.promise, 'state.handlerInfos')].slice(-1)[0].name;
 
     let transitionCtxt = get(transitionInfo.promise, 'intent.contexts');
     let hasTransitionCtxt = transitionCtxt && transitionCtxt[0];
@@ -85,13 +82,17 @@ export default Base.extend(Evented, {
       destURL: transitionUrl,
       destRoute: transitionRoute
     });
-    transitionInfo.promise.then(() => {
-      this.transitionData.finish();
-      let event = this.transitionData;
-      scheduleOnce('afterRender', () => {
-        this.trigger('transitionComplete', event);
+    transitionInfo.promise
+      .then(() => {
+        this.transitionData.finish();
+        let event = this.transitionData;
+        scheduleOnce('afterRender', () => {
+          this.trigger('transitionComplete', event);
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
       });
-    });
   },
 
   /**
